@@ -21,7 +21,7 @@
 ### 1. 拉取镜像
 
 ```bash
-docker pull ghcr.io/<your-org>/grafana-plugins:main
+docker pull ghcr.io/<your-org>/grafana-custom:main
 ```
 
 ### 2. 运行容器
@@ -32,7 +32,7 @@ docker run -d -p 3000:3000 \
   -e GF_SECURITY_ADMIN_USER=admin \
   -e GF_SECURITY_ADMIN_PASSWORD=<your-password> \
   -v grafana-data:/var/lib/grafana \
-  ghcr.io/<your-org>/grafana-plugins:main
+  ghcr.io/<your-org>/grafana-custom:main
 ```
 
 ### 3. 访问 Grafana
@@ -52,7 +52,7 @@ docker build -t grafana-custom .
 - **自动触发**: 推送代码到 `main` 分支
 - **手动触发**: GitHub Actions 页面点击 "Run workflow"
 
-镜像自动推送到：`ghcr.io/<your-org>/grafana-plugins:main`
+镜像自动推送到：`ghcr.io/<your-org>/grafana-custom:main`
 
 ## 配置
 
@@ -82,7 +82,7 @@ docker run -v /path/on/host:/var/lib/grafana ...
 在 GitHub 创建新仓库：
 
 ```bash
-git remote add origin https://github.com/<your-org>/grafana-plugins.git
+git remote add origin https://github.com/<your-org>/grafana-custom.git
 git push -u origin main
 ```
 
