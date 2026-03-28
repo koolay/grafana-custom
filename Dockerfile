@@ -14,8 +14,8 @@ RUN PLUGINS_DIR="/var/lib/grafana/plugins" && \
     tar -xzf /tmp/logs.tar.gz -C /tmp/victorialogs && \
     # 移动插件到目标目录（处理可能的版本目录名）
     mv /tmp/victorialogs/*/ "${PLUGINS_DIR}/victoriametrics-logs-datasource/" && \
-    # 设置正确的权限
-    chown -R grafana:grafana "${PLUGINS_DIR}/victoriametrics-logs-datasource/" && \
+    # 设置正确的权限（使用 472 即 grafana 用户的 UID）
+    chown -R 472:472 "${PLUGINS_DIR}/victoriametrics-logs-datasource/" && \
     # 清理临时文件和缓存
     rm -rf /tmp/logs.tar.gz /tmp/victorialogs
 
